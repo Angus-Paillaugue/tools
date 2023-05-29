@@ -57,12 +57,18 @@
         "name":"Image Average Color Finder",
         "categorie":"image",
         "urlName":"imageAverageColorFinder",
-        "iconName":"bi bi-type-bold"
+        "iconName":"bi bi-image"
     },
     {
         "name":"Image color extractor",
         "categorie":"image",
         "urlName":"imageColorExtractor",
-        "iconName":"bi bi-type-bold"
+        "iconName":"bi bi-image"
+    },
+    {
+        "name":"Image to base 64",
+        "categorie":"image",
+        "urlName":"imageToBase64",
+        "iconName":"bi bi-image"
     }
 ]
