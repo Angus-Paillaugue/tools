@@ -1,0 +1,15 @@
+<div class="mx-auto card max-w-sm flex flex-col gap-4 items-center">
+    <h1 id="key">A</h1>
+    <h3 id="keyCode" class="font-normal">65</h3>
+</div>
+
+<script>
+    const key = document.getElementById("key");
+    const keyCode = document.getElementById("keyCode");
+    document.addEventListener("keydown", (e) => {
+        console.log(e);
+        // e.preventDefault();
+        key.innerText = e.key == " " ? e.code : e.key;
+        keyCode.innerText = e.keyCode;
+    });
+</script>

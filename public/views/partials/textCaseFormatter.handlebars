@@ -1,0 +1,51 @@
+<div class="card max-w-2xl mx-auto">
+    <h1>Text case formatter</h1>
+
+    <select id="actionInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500 outline-none mt-4" onchange="convert()">
+        <option value="UPPERCASE" selected>UPPERCASE</option>
+        <option value="lowercase">lowercase</option>
+        <option value="Sentence">Sentence case</option>
+        <option value="Title">Title Case</option>
+        <option value="MiXeD">MiXeD CaSe</option>
+        <option value="MiXeDiNvErSeD">iNvErSeD MiXeD CaSe</option>
+    </select>
+
+    <textarea rows="4" class="block rounded-t-lg px-2.5 py-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-2" placeholder="Text to format" autocomplete="off" id="contentToConvert"></textarea>
+    <textarea rows="4" class="block rounded-t-lg px-2.5 py-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-2" placeholder="Result text" readonly id="resultContent"></textarea>
+</div>
+
+<script>
+    const contentToConvertTextarea = document.querySelector("#contentToConvert");
+    const resultContentTextarea = document.querySelector("#resultContent");
+    const actionInput = document.querySelector("#actionInput");
+
+    contentToConvertTextarea.addEventListener("keyup", convert);
+
+    function convert() {
+        let select = actionInput.value;
+        switch(select){
+            case "UPPERCASE":
+                setResultText(contentToConvertTextarea.value.toUpperCase());
+                break;
+            case "lowercase":
+                setResultText(contentToConvertTextarea.value.toLowerCase());
+                break;
+            case "Sentence":
+                setResultText(contentToConvertTextarea.value.split(".").map((sentence) => {return sentence.trim().charAt(0).toUpperCase() + sentence.trim().slice(1);}).join(". "));
+                break;
+            case "Title":
+                setResultText(contentToConvertTextarea.value.split(" ").map((word) => {return word.charAt(0).toUpperCase() + word.slice(1);}).join(" "));
+                break;
+            case "MiXeD":
+                setResultText(contentToConvertTextarea.value.split("").map((char, index) => {if(index%2 == 0){return char.toUpperCase()}else{ return char.toLowerCase();}}).join(""));
+                break;
+            case "MiXeDiNvErSeD":
+                setResultText(contentToConvertTextarea.value.split("").map((char, index) => {if(index%2 == 1){return char.toUpperCase()}else{ return char.toLowerCase();}}).join(""));
+                break;
+        }
+    }
+
+    function setResultText(text){
+        resultContentTextarea.value = text
+    }
+</script>

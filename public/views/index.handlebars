@@ -1,0 +1,6 @@
+{{#each apps}}
+    <a class="card flex flex-col gap-4 w-fit" href="/app/{{this.urlName}}">
+        <i class=" {{this.iconName}} text-4xl"></i>
+        <p>{{this.name}}</p>
+    </a>
+{{/each}}

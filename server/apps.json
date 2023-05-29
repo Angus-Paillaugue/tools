@@ -1,0 +1,68 @@
+[
+    {
+        "name":"keyboard tester",
+        "categorie":"text",
+        "urlName":"keyboardTester",
+        "iconName":"bi bi-command"
+    },
+    {
+        "name":"Base 64 encoder/decoder",
+        "categorie":"text",
+        "urlName":"base64encodeAndDecoder",
+        "iconName":"bi bi-regex"
+    },
+    {
+        "name":"HTML encoder/decoder",
+        "categorie":"text",
+        "urlName":"htmlDecodeAndEncode",
+        "iconName":"bi bi-filetype-html"
+    },
+    {
+        "name":"URL encoder/decoder",
+        "categorie":"text",
+        "urlName":"urlEncoderAndDecoder",
+        "iconName":"bi bi-link"
+    },
+    {
+        "name":"Text counter",
+        "categorie":"text",
+        "urlName":"textCounter",
+        "iconName":"bi bi-card-text"
+    },
+    {
+        "name":"Text case formatter",
+        "categorie":"text",
+        "urlName":"textCaseFormatter",
+        "iconName":"bi bi-type"
+    },
+    {
+        "name":"Multiple whitespace remover",
+        "categorie":"text",
+        "urlName":"multipleWhitespaceRemover",
+        "iconName":"bi bi-input-cursor"
+    },
+    {
+        "name":"Lorem ipsum generator",
+        "categorie":"text",
+        "urlName":"loremIpsumGenerator",
+        "iconName":"bi bi-blockquote-left"
+    },
+    {
+        "name":"Bionic reading converter",
+        "categorie":"text",
+        "urlName":"bionicReadingConverter",
+        "iconName":"bi bi-type-bold"
+    },
+    {
+        "name":"Image Average Color Finder",
+        "categorie":"image",
+        "urlName":"imageAverageColorFinder",
+        "iconName":"bi bi-type-bold"
+    },
+    {
+        "name":"Image color extractor",
+        "categorie":"image",
+        "urlName":"imageColorExtractor",
+        "iconName":"bi bi-type-bold"
+    }
+]

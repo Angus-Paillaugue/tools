@@ -1,0 +1,32 @@
+<div class="card max-w-2xl mx-auto">
+    <h1>Text counter</h1>
+
+    <textarea rows="4" class="block rounded-t-lg px-2.5 py-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-2" placeholder="Text to count" autocomplete="off" id="contentToCount"></textarea>
+
+    <div class="w-full flex flex-row flex-wrap justify-between">
+        <div class="pt-4"><div class="bg-neutral-100 dark:bg-neutral-800 rounded p-4 w-full text-center"><h1 class="text-3xl font-bold tracking-tight dark:text-gray-300 text-gray-500" id="sentencesCount">0</h1><p class="text-xl font-semibold tracking-tight dark:text-gray-300 text-gray-500">Sentences</p></div></div>
+        <div class="p-4 pb-0"><div class="bg-neutral-100 dark:bg-neutral-800 rounded p-4 w-full text-center"><h1 class="text-3xl font-bold tracking-tight dark:text-gray-300 text-gray-500" id="wordsCount">0</h1><p class="text-xl font-semibold tracking-tight dark:text-gray-300 text-gray-500">Words</p></div></div>
+        <div class="p-4 pl-0 pb-"><div class="bg-neutral-100 dark:bg-neutral-800 rounded p-4 w-full text-center"><h1 class="text-3xl font-bold tracking-tight dark:text-gray-300 text-gray-500" id="lettersCount">0</h1><p class="text-xl font-semibold tracking-tight dark:text-gray-300 text-gray-500">Letters</p></div></div>
+        <div class="pt-4"><div class="bg-neutral-100 dark:bg-neutral-800 rounded p-4 w-full text-center"><h1 class="text-3xl font-bold tracking-tight dark:text-gray-300 text-gray-500" id="charactersCount">0</h1><p class="text-xl font-semibold tracking-tight dark:text-gray-300 text-gray-500">Characters</p></div></div>
+    </div>
+</div>
+
+<script>
+    const contentToCountInput = document.querySelector("#contentToCount");
+    const sentencesCount = document.querySelector("#sentencesCount");
+    const wordsCount = document.querySelector("#wordsCount");
+    const lettersCount = document.querySelector("#lettersCount");
+    const charactersCount = document.querySelector("#charactersCount");
+    
+    const regex = new RegExp(/[!.?]/g);
+
+    contentToCountInput.addEventListener("keyup", count);
+
+    function count() {
+        let text = contentToCountInput.value;
+        sentencesCount.innerText = text.split(regex).length;
+        wordsCount.innerText = text.split(" ").length;
+        lettersCount.innerText = text.split("").filter(char => {return char.toUpperCase() != char.toLowerCase()}).length;
+        charactersCount.innerText = text.split("").length;
+    }
+</script>

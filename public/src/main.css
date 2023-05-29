@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-50 dark:bg-gray-900 overflow-x-hidden text-gray-900 dark:text-neutral-100
+}
+
+.button-primary {
+    @apply focus:outline-none text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg text-sm px-5 py-2.5 flex flex-row gap-2 items-center justify-center disabled:bg-indigo-400 disabled:cursor-not-allowed
+}
+
+.link {
+    @apply font-medium text-indigo-600 dark:text-indigo-700 hover:underline
+}
+
+hr {
+    @apply my-4 border-gray-300 dark:border-gray-500
+}
+
+h1 {
+    @apply text-4xl font-sans font-semibold text-gray-700 dark:text-neutral-100
+}
+
+p {
+    @apply block text-base leading-8 font-sans font-normal dark:text-gray-300 text-gray-500
+}
+
+.card {
+    @apply p-10 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800
+}
