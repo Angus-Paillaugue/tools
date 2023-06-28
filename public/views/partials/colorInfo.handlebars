@@ -1,0 +1,30 @@
+<div class="card max-w-2xl mx-auto">
+    <h1>Color converter</h1>
+
+    <textarea rows="8" class="block rounded-t-lg px-2.5 py-2.5 w-full text-md text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-4" placeholder="Code to format" autocomplete="off" id="contentToConvert"></textarea>
+
+    
+
+    <textarea rows="8" class="block rounded-t-lg px-2.5 py-2.5 w-full text-md text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-4" placeholder="Result" autocomplete="off" id="resultContent" readonly></textarea>
+</div>
+
+<script>
+    function componentToHex(c) {
+        var hex = c.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    }
+
+    function rgbToHex(rgb) {
+        return "#" + componentToHex(rgb.r) + componentToHex(rgb.g) + componentToHex(rgb.b);
+    }
+
+    function RGBToHSL (rgb) {
+        rgb.r /= 255;
+        rgb.g /= 255;
+        rgb.b /= 255;
+        const l = Math.max(rgb.r, rgb.g, rgb.b);
+        const s = l - Math.min(rgb.r, rgb.g, rgb.b);
+        const h = s ? l === rgb.r ? (rgb.g - rgb.b) / s : l === rgb.g ? 2 + (rgb.b - rgb.r) / s : 4 + (rgb.r - rgb.g) / s : 0;
+        return Math.round(60 * h < 0 ? 60 * h + 360 : 60 * h)+", "+ Math.round(100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0))+", "+Math.round((100 * (2 * l - s)) / 2)
+    }
+</script>

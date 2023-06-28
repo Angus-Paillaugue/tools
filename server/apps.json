@@ -70,5 +70,17 @@
         "categorie":"image",
         "urlName":"imageToBase64",
         "iconName":"bi bi-image"
+    },
+    {
+        "name":"Base converter",
+        "categorie":"code",
+        "urlName":"binaryHexDecimalConverter",
+        "iconName":"bi bi-file-binary"
+    },
+    {
+        "name":"Code formatter",
+        "categorie":"code",
+        "urlName":"codeFormater",
+        "iconName":"bi bi-justify"
     }
 ]

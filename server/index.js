@@ -8,7 +8,7 @@ import path from "path"
 import * as hbsHelpers from "./handlebars-helpers.js"
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const categorieIcons = {text:"bi bi-body-text", image:"bi bi-card-image"}
+const categorieIcons = {text:"bi bi-body-text", image:"bi bi-card-image", code:"bi bi-code"}
 // Express
 const app = express();
 app.engine('handlebars', engine({

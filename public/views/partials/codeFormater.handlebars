@@ -1,0 +1,57 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-css.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.js"></script>
+
+<div class="card max-w-2xl mx-auto">
+    <h1>Code formatter</h1>
+
+    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500 outline-none mt-4" id="languageInput">
+        <option value="HTML" selected>HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="Javascript">Javascript</option>
+    </select>
+
+    <textarea rows="8" class="block rounded-t-lg px-2.5 py-2.5 w-full text-md text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-4" placeholder="Code to format" autocomplete="off" id="contentToConvert"></textarea>
+
+    <textarea rows="8" class="block rounded-t-lg px-2.5 py-2.5 w-full text-md text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-4" placeholder="Result" autocomplete="off" id="resultContent" readonly></textarea>
+
+</div>
+
+<script>
+    const contentToConvert = document.querySelector("#contentToConvert");
+    const resultContent = document.querySelector("#resultContent");
+    const languageInput = document.querySelector("#languageInput");
+
+    contentToConvert.addEventListener("keyup", format);
+    languageInput.addEventListener("change", format);
+
+    const options = {
+        "indent_size": "4",
+        "indent_char": " ",
+        "max_preserve_newlines": "5",
+        "preserve_newlines": true,
+        "keep_array_indentation": false,
+        "break_chained_methods": false,
+        "indent_scripts": "normal",
+        "brace_style": "collapse",
+        "space_before_conditional": true,
+        "unescape_strings": false,
+        "jslint_happy": false,
+        "end_with_newline": false,
+        "wrap_line_length": "0",
+        "indent_inner_html": false,
+        "comma_first": false,
+        "e4x": false,
+        "indent_empty_lines": false
+    };
+    function format() {
+        let language = languageInput.value;
+        if(language=="HTML"){
+            resultContent.value = html_beautify(contentToConvert.value, options);
+        }else if(language == "CSS"){
+            resultContent.value = css_beautify(contentToConvert.value, options);
+        }else{
+            resultContent.value = js_beautify(contentToConvert.value, options);
+        }
+    }
+</script>

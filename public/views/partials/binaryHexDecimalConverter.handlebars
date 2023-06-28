@@ -1,0 +1,62 @@
+<div class="card max-w-2xl mx-auto">
+    <h1>Base convertor</h1>
+
+    <div class="flex flex-row gap-2 mt-4 w-full">
+        <div class="flex flex-col w-full">
+            <p>From : </p>
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500 outline-none" id="fromInput">
+                <option value="2" selected>Binary</option>
+                <option value="10">Base 10</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+        </div>
+
+
+        <div class="flex flex-col w-full">
+            <p>To : </p>
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500 outline-none" id="toInput">
+                <option value="2">Binary</option>
+                <option value="10" selected>Base 10</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+        </div>
+    </div>
+
+    <textarea rows="8" class="block rounded-t-lg px-2.5 py-2.5 w-full text-md text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-4" placeholder="Content to convert" autocomplete="off" id="contentToConvert"></textarea>
+
+    <textarea rows="8" class="block rounded-t-lg px-2.5 py-2.5 w-full text-md text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-indigo-500 focus:outline-none focus:ring-0 focus:border-indigo-600 mt-4" placeholder="Result" autocomplete="off" id="resultContent" readonly></textarea>
+
+</div>
+
+<script>
+    const contentToConvert = document.querySelector("#contentToConvert");
+    const resultContent = document.querySelector("#resultContent");
+    const fromInput = document.querySelector("#fromInput");
+    const toInput = document.querySelector("#toInput");
+
+    contentToConvert.addEventListener("keyup", convert);
+    fromInput.addEventListener("change", convert);
+    toInput.addEventListener("change", convert);
+
+    function convert() {
+        if(fromInput.value == "2"){
+            if(toInput.value == "2") resultContent.value = contentToConvert.value; else if(toInput.value == "10") resultContent.value = parseInt(contentToConvert.value, 2); else resultContent.value = parseInt(contentToConvert.value, 2).toString(16).toUpperCase();
+        }else if(fromInput.value == "10"){
+            if(toInput.value == "2"){
+                resultContent.value = parseInt(contentToConvert.value).toString(2);
+            }else if(toInput.value == "10") {
+                resultContent.value = contentToConvert.value;
+            }else {
+                resultContent.value = parseInt(contentToConvert.value).toString(16).toUpperCase();
+            }
+        }else {
+            if(toInput.value == "2"){
+                resultContent.value = parseInt(contentToConvert.value, 16).toString(2);
+            }else if(toInput.value == "10") {
+                resultContent.value = parseInt(contentToConvert.value, 16);
+            }else {
+                resultContent.value = contentToConvert.value;
+            }
+        }
+    }
+</script>
